@@ -1,0 +1,9 @@
+{
+  "id": "romATI",
+  "class": "rom",
+  "addr": "0xc0000",
+  "size": "0x06000",
+  "alias": null,
+  "notify": "videoVGA[0x378d,0x3f8d]",
+  "file": "/machines/pcx86/devices/ati/vga/1988-11-11/VGA_Wonder_V3-1.02.json5"
+}
