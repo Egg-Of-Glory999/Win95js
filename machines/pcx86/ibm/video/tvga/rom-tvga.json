@@ -1,0 +1,9 @@
+{
+  "id": "romTVGA",
+  "class": "rom",
+  "addr": "0xc0000",
+  "size": "0x06000",
+  "alias": null,
+  "notify": "videoVGA[0x378d,0x3f8d]",
+  "file": "/machines/pcx86/ibm/video/tvga/Trident-TVGA.json5"
+}
