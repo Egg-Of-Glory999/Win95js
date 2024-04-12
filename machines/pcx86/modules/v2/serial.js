@@ -1,7 +1,7 @@
 /**
  * @fileoverview Implements the PCx86 SerialPort component
  * @author Jeff Parsons <Jeff@pcjs.org>
- * @copyright © 2012-2023 Jeff Parsons
+ * @copyright © 2012-2024 Jeff Parsons
  * @license MIT <https://www.pcjs.org/LICENSE.txt>
  *
  * This file is part of PCjs, a computer emulation software project at <https://www.pcjs.org>.
@@ -320,7 +320,7 @@ export default class SerialPort extends Component {
              * will then call bindExternalControl(), which looks up the control, and then passes it to our own
              * setBinding() handler.
              *
-             * For bindExternalControl() to succeed, it also need to know the target component; for now, that's
+             * For bindExternalControl() to succeed, it also needs to know the target component; for now, that's
              * been hard-coded to "Panel", in part because that's one of the few components we can rely upon
              * initializing before we do, but it would be a simple matter to include a component type or ID as part
              * of the 'binding' property as well, if we need more flexibility later.

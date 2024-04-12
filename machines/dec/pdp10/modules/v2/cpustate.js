@@ -1,7 +1,7 @@
 /**
  * @fileoverview Implements the PDP-10 CPU component
  * @author Jeff Parsons <Jeff@pcjs.org>
- * @copyright © 2012-2023 Jeff Parsons
+ * @copyright © 2012-2024 Jeff Parsons
  * @license MIT <https://www.pcjs.org/LICENSE.txt>
  *
  * This file is part of PCjs, a computer emulation software project at <https://www.pcjs.org>.
@@ -9,11 +9,9 @@
 
 import BusPDP10 from "./bus.js";
 import CPUPDP10 from "./cpu.js";
-import MemoryPDP10 from "./memory.js";
 import MESSAGE from "./message.js";
 import Component from "../../../../modules/v2/component.js";
 import State from "../../../../modules/v2/state.js";
-import StrLib from "../../../../modules/v2/strlib.js";
 import WebLib from "../../../../modules/v2/weblib.js";
 import { APPCLASS, DEBUG, DEBUGGER, PDP10 } from "./defines.js";
 
@@ -42,15 +40,13 @@ import { APPCLASS, DEBUG, DEBUGGER, PDP10 } from "./defines.js";
  */
 
 /**
- * @typedef {{
- *  vector: number,
- *  priority: number,
- *  message: number,
- *  name: (string|null),
- *  next: (IRQ|null)
- * }}
+ * @typedef {Object} IRQ
+ * @property {number} vector
+ * @property {number} priority
+ * @property {number} message
+ * @property {string|null} name
+ * @property {IRQ|null} next
  */
-var IRQ;
 
 /**
  * @class CPUStatePDP10

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Implements disk image support for various disk controllers
  * @author Jeff Parsons <Jeff@pcjs.org>
- * @copyright © 2012-2023 Jeff Parsons
+ * @copyright © 2012-2024 Jeff Parsons
  * @license MIT <https://www.pcjs.org/LICENSE.txt>
  *
  * This file is part of PCjs, a computer emulation software project at <https://www.pcjs.org>.
@@ -52,18 +52,16 @@ import { DEBUG } from "./defines.js";
  *      cModify:    number of modified dwords in sector
  *      fDirty:     true if sector is dirty, false if clean (or cleaning in progress)
  *
- * @typedef {{
- *  sector:     number,
- *  length:     number,
- *  data:       Array.<number>,
- *  pattern:    (number|null),
- *  iCylinder:  number,
- *  iHead:      number,
- *  iModify:    number,
- *  cModify:    number
- * }}
+ * @typedef {Object} SectorInfo
+ * @property {number} sector
+ * @property {number} length
+ * @property {Array.<number>} data
+ * @property {number|null} pattern
+ * @property {number} iCylinder
+ * @property {number} iHead
+ * @property {number} iModify
+ * @property {number} cModify
  */
-var SectorInfo;
 
 /**
  * @class DiskPDP11

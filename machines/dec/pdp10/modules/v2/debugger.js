@@ -1,7 +1,7 @@
 /**
  * @fileoverview Implements the PDP-10 Debugger component
  * @author Jeff Parsons <Jeff@pcjs.org>
- * @copyright © 2012-2023 Jeff Parsons
+ * @copyright © 2012-2024 Jeff Parsons
  * @license MIT <https://www.pcjs.org/LICENSE.txt>
  *
  * This file is part of PCjs, a computer emulation software project at <https://www.pcjs.org>.
@@ -30,16 +30,14 @@ import { APPCLASS, APPNAME, APPVERSION, COMPILED, DEBUG, DEBUGGER, MAXDEBUG, PDP
  *      sCmd            set for breakpoint addresses if there's an associated command string
  *      aCmds           preprocessed commands (from sCmd)
  *
- * @typedef {{
- *      addr:(number|null),
- *      fPhysical:(boolean),
- *      fTemporary:(boolean),
- *      nBase:(number|undefined),
- *      sCmd:(string|undefined),
- *      aCmds:(Array.<string>|undefined)
- * }}
+ * @typedef {Object} DbgAddrPDP10
+ * @property {number|null} addr
+ * @property {boolean} fPhysical
+ * @property {boolean} fTemporary
+ * @property {number} [nBase]
+ * @property {string} [sCmd]
+ * @property {Array.<string>} [aCmds]
  */
-var DbgAddrPDP10;
 
 /**
  * @class DebuggerPDP10

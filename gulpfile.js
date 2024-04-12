@@ -1,7 +1,7 @@
 /**
  * @fileoverview Gulp file for pcjs.org
  * @author Jeff Parsons <Jeff@pcjs.org>
- * @copyright © 2012-2023 Jeff Parsons
+ * @copyright © 2012-2024 Jeff Parsons
  * @license MIT <https://www.pcjs.org/LICENSE.txt>
  *
  * This file is part of PCjs, a computer emulation software project at <https://www.pcjs.org>.
@@ -246,7 +246,7 @@ aMachines.forEach(function(machineID)
                     .pipe(gulpReplace(/\/\*\*\s*\*\s*@fileoverview[\s\S]*?\*\/\s*/gm, ""))
                     .pipe(gulpReplace(/[ \t]*if\s*\(NODE\)\s*({[^}]*}|[^\r\n]*)(\r?\n|$)/gm, ""))
                     .pipe(gulpReplace(/[ \t]*if\s*\(typeof\s+module\s*!==?\s*(['"])undefined\1\)\s*({[^}]*}|[^\r\n]*)(\r?\n|$)/gm, ""))
-                    .pipe(gulpReplace(/\/\*\*[^@/]*@typedef\s*{([A-Z][A-Za-z0-9_<>.]+)}\s*(\S+)\s*([\s\S]*?)\*\//g, function(match, def, type, props) {
+                    .pipe(gulpReplace(/\/\*\*[^@]*?@typedef\s*\{([A-Z][A-Za-z0-9_<>.]+)\}\s*(\S+)\s*([\s\S]*?)\*\//g, function(match, def, type, props) {
                         let sType = "/** @typedef {", sProps = "";
                         let reProps = /@property\s*{([^}]*)}\s*(\[|)([^\s\]]+)]?/g, matchProps;
                         while ((matchProps = reProps.exec(props))) {
@@ -371,9 +371,9 @@ gulp.task("copyright", function(done) {
      * it would also be nice if we could avoid rewriting ANY file that contains no matches, because Gulp's default behavior
      * seems to be rewrite EVERYTHING, at least when we're doing these sorts of "in place" operations.
      */
-    return gulp.src(["gulpfile.js", "machines/**/*.js", "software/**/*.js", "tools/**/*.js", "**/*.md", "_layouts/*.html"], {base: baseDir})
+    return gulp.src(["gulpfile.js", "LICENSE.txt", "_includes/machine.html", "machines/**/*.{js,css,xsl}", "software/**/*.js", "tools/**/*.js", "**/*.md", "_layouts/*.html"], {base: baseDir})
         .pipe(gulpReplace(/(Copyright[ \S]+?)( Jeff Parsons)( +201\d-)[0-9]+/gi, '$1$3' + pkg.year + '$2', {skipBinary: true}))
-        .pipe(gulpReplace(/(Copyright|\u00A9)( +201\d-)[0-9]+(.*?Jeff Parsons|.*?twitter_username)/gi, '$1$2' + pkg.year + '$3', {skipBinary: true}))
+        .pipe(gulpReplace(/(Copyright|\u00A9|\(c\))( +201\d-)[0-9]+(.*?Jeff Parsons|.*?twitter_username)/gi, '$1$2' + pkg.year + '$3', {skipBinary: true}))
         .pipe(gulp.dest(baseDir));
 });
 
